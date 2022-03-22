@@ -1,3 +1,12 @@
-const HomePage = () => {}
+import { Fragment } from "react";
+import Hero from "../components/home-page/hero";
 
-export default Homepage
+const HomePage = () => {
+  return (
+    <Fragment>
+      <Hero />
+    </Fragment>
+  );
+};
+
+export default HomePage;
