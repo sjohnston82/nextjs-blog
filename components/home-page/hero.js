@@ -15,7 +15,7 @@ const Hero = () => {
       </div>
       <h1>Hi, I'm Ernie</h1>
       <p>
-        I am the one and only bowling phenom - who blogs about all things
+        What's McCrackenin? I am the one and only bowling phenom - who blogs about all things
         bowling and frontend frameworks related.
       </p>
     </section>
