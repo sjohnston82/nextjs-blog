@@ -16,7 +16,7 @@ function PostItem(props) {
   // the image prop is just the name of the file, no the full path, so we must make one using template literals
   const imagePath = `/images/posts/${slug}/${image}`;
 
-  const linkPath = `/images/posts/${slug}`;
+  const linkPath = `/posts/${slug}`;
 
   return (
     <li className={classes.post}>
@@ -28,7 +28,7 @@ function PostItem(props) {
               alt={title}
               width={300}
               height={200}
-              layout="responsive" 
+              layout="responsive"
             />
           </div>
           <div className={classes.content}>
