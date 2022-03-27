@@ -2,48 +2,28 @@ import { Fragment } from "react";
 import Hero from "../components/home-page/hero";
 import FeaturedPosts from "../components/home-page/featured-posts";
 
-const DUMMY_POSTS = [
-  {
-    slug: "big-erns-big-earns",
-    title: "Big Ern's Big Earns",
-    image: "erniemccracken.webp",
-    excerpt:
-      "A riveting post about Big Ernie McCracken's monster earnings from a career as a pro bowler.",
-    date: "2022-03-22",
-  },
-  {
-    slug: "big-erns-big-earns2",
-    title: "Big Ern's Big Earns",
-    image: "erniemccracken.webp",
-    excerpt:
-      "A riveting post about Big Ernie McCracken's monster earnings from a career as a pro bowler.",
-    date: "2022-03-22",
-  },
-  {
-    slug: "big-erns-big-earns3",
-    title: "Big Ern's Big Earns",
-    image: "erniemccracken.webp",
-    excerpt:
-      "A riveting post about Big Ernie McCracken's monster earnings from a career as a pro bowler.",
-    date: "2022-03-22",
-  },
-  {
-    slug: "big-erns-big-earns4",
-    title: "Big Ern's Big Earns",
-    image: "erniemccracken.webp",
-    excerpt:
-      "A riveting post about Big Ernie McCracken's monster earnings from a career as a pro bowler.",
-    date: "2022-03-22",
-  },
-];
+import { getFeaturedPosts } from "../lib/posts-util";
 
-const HomePage = () => {
+const HomePage = (props) => {
   return (
     <Fragment>
       <Hero />
-      <FeaturedPosts posts={DUMMY_POSTS} />
+      <FeaturedPosts posts={props.posts} />
     </Fragment>
   );
 };
+
+// we use getStaticProps here instead of getServerSideProps because we do not need to rerender all of the posts every time
+// a request comes in.  these blog posts would rarely change if ever so getStaticProps is the best way to pre render them.
+export function getStaticProps() {
+  const featuredPosts = getFeaturedPosts();
+
+  return {
+    props: {
+      posts: featuredPosts,
+    },
+    // revalidate: 1800,
+  };
+}
 
 export default HomePage;
