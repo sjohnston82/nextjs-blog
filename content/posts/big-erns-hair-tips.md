@@ -13,7 +13,7 @@ This here puts the fun in function!
 ```js
 let bigErnsScore = Math.floor(Math.random(300));
 let royMunsonsScore = Math.floor(Math.random(300));
-const bigErnsScore = () => {
+const bowlingScore = () => {
   if (bigErnsScore > royMunsonsScore) {
     return console.log("How's about one more time, Sweetness!");
   }
@@ -24,4 +24,3 @@ const bigErnsScore = () => {
 };
 ```
 
-Blah blah blah content
