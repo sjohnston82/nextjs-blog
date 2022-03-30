@@ -6,7 +6,7 @@ import classes from "./logo.module.css";
 const Logo = () => {
   return (
     <Fragment>
-      <div className={classes.logo}>Big Ern's Bitchin' Bowling Blog</div>
+      <div className={classes.logo}>Big Ern's Bitchin' Blog</div>
     </Fragment>
   );
 };
