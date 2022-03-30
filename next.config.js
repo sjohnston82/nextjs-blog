@@ -26,10 +26,5 @@ module.exports = (phase) => {
 
       return config;
     },
-    env: {
-      mongodb_username: "mossy82",
-      mongodb_clustername: "cluster0",
-      mongodb_db_name: "contactmessages",
-    },
   };
 };
