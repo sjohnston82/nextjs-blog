@@ -1,11 +1,18 @@
-import ReactMarkdown from "react-markdown";
-
 import PostHeader from "./post-header";
-
 import classes from "./post-content.module.css";
 import Image from "next/image";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { atomDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+
+import ReactMarkdown from "react-markdown";
+import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
+import atomDark from "react-syntax-highlighter/dist/cjs/styles/prism/atom-dark";
+
+// to optimize the bundle size for the build, the 'light' version of syntax highlighter was used where you can specify
+// just the languages you need to support (reduced from 348kb to 126kb)
+import js from "react-syntax-highlighter/dist/cjs/languages/prism/javascript";
+import css from "react-syntax-highlighter/dist/cjs/languages/prism/css";
+
+SyntaxHighlighter.registerLanguage("js", js);
+SyntaxHighlighter.registerLanguage("css", css);
 
 const PostContent = (props) => {
   const { post } = props;

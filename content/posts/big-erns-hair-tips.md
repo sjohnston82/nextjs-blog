@@ -11,9 +11,9 @@ isFeatured: true
 This here puts the fun in function!
 
 ```js
-let bigErnsScore = Math.floor(Math.random(300));
-let royMunsonsScore = Math.floor(Math.random(300));
 const bowlingScore = () => {
+  let bigErnsScore = Math.floor(Math.random(300));
+  let royMunsonsScore = Math.floor(Math.random(300));
   if (bigErnsScore > royMunsonsScore) {
     return console.log("How's about one more time, Sweetness!");
   }
@@ -23,4 +23,3 @@ const bowlingScore = () => {
   }
 };
 ```
-

@@ -1,22 +1,35 @@
-/** @type {import('next').NextConfig} */
-// const nextConfig = {
-// };
+const { PHASE_DEVELOPMENT_SERVER } = require("next/constants");
 
-// module.exports = nextConfig;
+module.exports = (phase) => {
+  if (phase === PHASE_DEVELOPMENT_SERVER) {
+    return {
+      env: {
+        mongodb_username: "mossy82",
+        mongodb_clustername: "cluster0",
+        mongodb_db_name: "contactmessages",
+      },
+    };
+  }
 
-module.exports = {
-  reactStrictMode: true,
-  future: {
-      webpack5: true, // by default, if you customize webpack config, they switch back to version 4. 
+  return {
+    reactStrictMode: true,
+    future: {
+      webpack5: true, // by default, if you customize webpack config, they switch back to version 4.
       // Looks like backward compatibility approach.
-  },
-  webpack(config) {
+    },
+    webpack(config) {
       config.resolve.fallback = {
-          ...config.resolve.fallback, // if you miss it, all the other options in fallback, specified
-          // by next.js will be dropped. Doesn't make much sense, but how it is
-          fs: false, // the solution
+        ...config.resolve.fallback, // if you miss it, all the other options in fallback, specified
+        // by next.js will be dropped. Doesn't make much sense, but how it is
+        fs: false, // the solution
       };
 
       return config;
-  },
+    },
+    env: {
+      mongodb_username: "mossy82",
+      mongodb_clustername: "cluster0",
+      mongodb_db_name: "contactmessages",
+    },
+  };
 };
